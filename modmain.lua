@@ -44,9 +44,9 @@ end
 local function Init(inst)
 	if inst.prefab ~= "wolfgang" then return end
 	inst:DoTaskInTime(0, function()
-	   currentForm = GetFormFromHunger(inst.replica.hunger:GetCurrent())
-	   inst:ListenForEvent("hungerdelta", OnHungerDelta)
-	 end)
+		currentForm = GetFormFromHunger(inst.replica.hunger:GetCurrent())
+		inst:ListenForEvent("hungerdelta", OnHungerDelta)
+	end)
 end
 
 AddPlayerPostInit(Init)
