@@ -8,15 +8,15 @@ local Talker = {"WIMPY","NORMAL","MIGHTY"}
 local CurrentForm
 
 local function GetFormFromHunger(hunger, lastform)
-    local mighty = lastform == 3 and 220 or GLOBAL.TUNING.WOLFGANG_START_MIGHTY_THRESH
-    local wimpy = lastform == 1 and 105 or GLOBAL.TUNING.WOLFGANG_START_WIMPY_THRESH
-    if hunger > mighty then
-        return 3
-    elseif hunger <= wimpy then
-        return 1
-    else
-        return 2
-    end
+	local mighty = lastform == 3 and 220 or GLOBAL.TUNING.WOLFGANG_START_MIGHTY_THRESH
+	local wimpy = lastform == 1 and 105 or GLOBAL.TUNING.WOLFGANG_START_WIMPY_THRESH
+	if hunger > mighty then
+		return 3
+	elseif hunger <= wimpy then
+		return 1
+	else
+		return 2
+	end
 end
 
 local function OnHungerDelta(inst, data)
