@@ -22,17 +22,17 @@ end
 local function OnHungerDelta(inst, data)
 	local hunger = inst.replica.hunger:GetCurrent()
 	CurrentForm = GetFormFromHunger(hunger, CurrentForm)
-    if CurrentForm == 1 then return end
-    if (hunger - Warning) <= Deform[CurrentForm] then
-        GLOBAL.ThePlayer.components.talker:Say(string.format("Wolfgang becomes %s in %d hunger.", Talker[CurrentForm-1], (hunger - Deform[CurrentForm])))
-    end
+	if CurrentForm == 1 then return end
+	if (hunger - Warning) <= Deform[CurrentForm] then
+		GLOBAL.ThePlayer.components.talker:Say(string.format("Wolfgang becomes %s in %d hunger.", Talker[CurrentForm-1], (hunger - Deform[CurrentForm])))
+	end
 end
 
 local function ModSetup(inst)
 	if inst.prefab == "wolfgang" then
-        inst:DoTaskInTime(0, function()
-            inst:ListenForEvent("hungerdelta", OnHungerDelta)
-        end)
-    end
+		inst:DoTaskInTime(0, function()
+			inst:ListenForEvent("hungerdelta", OnHungerDelta)
+		end)
+	end
 end
 AddPlayerPostInit(ModSetup)
