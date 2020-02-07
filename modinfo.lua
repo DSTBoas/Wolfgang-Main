@@ -1,6 +1,6 @@
 name = "Wolfgang Main"
 author = "Boas"
-version = "101.101"
+version = "101.111"
 
 forumthread = ""
 description = "Wolfgang warns you when you're about to change form."
@@ -21,7 +21,7 @@ client_only_mod = true
 server_filter_tags = {}
 
 local warning = {
-	{description = "3", data = 5},
+	{description = "3", data = 3},
     {description = "5", data = 5},
     {description = "10", data = 10},
     {description = "15", data = 15},

@@ -32,11 +32,11 @@ local function OnHungerDelta(inst, data)
 end
 
 local function ModSetup(inst)
-	if inst.prefab == "wolfgang" then
-		inst:DoTaskInTime(0, function()
-			Player = inst
-			inst:ListenForEvent("hungerdelta", OnHungerDelta)
-		end)
-	end
+    if inst.prefab == "wolfgang" then
+        inst:DoTaskInTime(0, function()
+            Player = inst
+            Player:ListenForEvent("hungerdelta", OnHungerDelta)
+        end)
+    end
 end
 AddPlayerPostInit(ModSetup)
