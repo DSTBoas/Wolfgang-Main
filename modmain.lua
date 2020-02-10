@@ -1,7 +1,3 @@
-local DST = GLOBAL.TheSim:GetGameID() == "DST"
-if not DST then return end
-if DST and GLOBAL.TheNet:IsDedicated() then return end
-
 local Warning = GetModConfigData("WARNING")
 local WolfgangStartMighty = TUNING.WOLFGANG_START_MIGHTY_THRESH
 local WolfgangEndMighty = TUNING.WOLFGANG_END_MIGHTY_THRESH
@@ -27,12 +23,12 @@ local function OnHungerDelta(inst, data)
     local hunger = Player.replica.hunger:GetCurrent()
     CurrentForm = GetFormFromHunger(hunger, CurrentForm)
     if CurrentForm ~= 1 and (hunger - Warning) <= Deform[CurrentForm] then
-        Player.components.talker:Say(string.format("Wolfgang becomes %s in %d hunger.", Talker[CurrentForm-1], (hunger - Deform[CurrentForm])))
+        Player.components.talker:Say(string.format("Wolfgang becomes %s in %d hunger.", Talker[CurrentForm - 1], (hunger - Deform[CurrentForm])))
     end
 end
 
 local function ModSetup(inst)
-    if inst.prefab == "wolfgang" then
+    if inst.name == "Wolfgang" then
         inst:DoTaskInTime(0, function()
             Player = inst
             Player:ListenForEvent("hungerdelta", OnHungerDelta)
