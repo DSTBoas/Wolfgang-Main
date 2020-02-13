@@ -29,7 +29,7 @@ end
 
 local function ModInit(inst)
     inst:DoTaskInTime(0, function()
-    	if inst.name == "Wolfgang" and inst == GLOBAL.ThePlayer then
+    	if inst == GLOBAL.ThePlayer and inst.prefab == "wolfgang" then
             Player = inst
             Player:ListenForEvent("hungerdelta", OnHungerDelta)
         end
