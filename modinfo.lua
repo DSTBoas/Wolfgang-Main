@@ -35,5 +35,5 @@ end
 
 configuration_options = 
 {
-	AddConfig("Warning Hunger", "WARNING", warning, 5, "The amount of hunger before the warning starts"),
+	AddConfig("Amount of Hunger", "WARNING", warning, 5, "The amount of Hunger before the warning starts"),
 }
