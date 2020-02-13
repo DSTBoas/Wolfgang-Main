@@ -28,13 +28,11 @@ local function OnHungerDelta(inst, data)
 end
 
 local function ModInit(inst)
-    if inst.name == "Wolfgang" then
-        inst:DoTaskInTime(0, function()
-        	if inst == GLOBAL.ThePlayer then
-	            Player = inst
-	            Player:ListenForEvent("hungerdelta", OnHungerDelta)
-	        end
-        end)
-    end
+    inst:DoTaskInTime(0, function()
+    	if inst.name == "Wolfgang" and inst == GLOBAL.ThePlayer then
+            Player = inst
+            Player:ListenForEvent("hungerdelta", OnHungerDelta)
+        end
+    end)
 end
 AddPlayerPostInit(ModInit)
