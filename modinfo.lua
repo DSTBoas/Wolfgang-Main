@@ -42,5 +42,5 @@ end
 configuration_options = 
 {
 	AddConfig("Amount of Hunger", "WARNING", warning, 5, "The amount of Hunger before the warning starts"),
-	AddConfig("Color", "COLORED", bool, false, "Gives the warning message some color"),
+	AddConfig("Color", "COLORED", bool, false, "Adds color to the warning message"),
 }
