@@ -22,12 +22,12 @@ server_filter_tags = {}
 
 local warning = {
 	{description = "3", data = 3},
-    {description = "5", data = 5},
-    {description = "7", data = 7},
-    {description = "10", data = 10},
-    {description = "15", data = 15},
-    {description = "20", data = 20},
-    {description = "25", data = 25},
+	{description = "5", data = 5},
+	{description = "7", data = 7},
+	{description = "10", data = 10},
+	{description = "15", data = 15},
+	{description = "20", data = 20},
+	{description = "25", data = 25},
 }
 
 local bool = {
