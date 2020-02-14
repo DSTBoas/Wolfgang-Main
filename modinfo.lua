@@ -1,6 +1,6 @@
 name = "Wolfgang Main"
 author = "Boas"
-version = "101.101"
+version = "101.001"
 
 forumthread = ""
 description = "Wolfgang warns you when you're about to change form."
@@ -23,10 +23,16 @@ server_filter_tags = {}
 local warning = {
 	{description = "3", data = 3},
     {description = "5", data = 5},
+    {description = "7", data = 7},
     {description = "10", data = 10},
     {description = "15", data = 15},
     {description = "20", data = 20},
     {description = "25", data = 25},
+}
+
+local bool = {
+	{description = "Enabled", data = true},
+	{description = "Disabled", data = false},
 }
 
 local function AddConfig(label, name, options, default, hover)
@@ -36,4 +42,5 @@ end
 configuration_options = 
 {
 	AddConfig("Amount of Hunger", "WARNING", warning, 5, "The amount of Hunger before the warning starts"),
+	AddConfig("Color", "COLORED", bool, false, "Gives the warning message some color"),
 }
