@@ -3,7 +3,7 @@ author = "Boas"
 version = "1.0"
 
 forumthread = ""
-description = "Wolfgang warns you when you're about to change form"
+description = "Wolfgang warns you when you are about to change form"
 
 api_version = 10
 
