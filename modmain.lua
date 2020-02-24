@@ -6,7 +6,7 @@ local WolfgangStartWimpy = TUNING.WOLFGANG_START_WIMPY_THRESH
 local WolfgangEndWimpy = TUNING.WOLFGANG_END_WIMPY_THRESH
 local Deform = {[2] = WolfgangStartWimpy,[3] = WolfgangEndMighty}
 local Talker = {[2] = "WIMPY",[3] = "NORMAL"}
-local GLOBAL, Cache, Color, Player, CurrentForm = GLOBAL, {}, {1, 1, 1, 1}
+local GLOBAL, Cache, Color, CurrentForm = GLOBAL, {}, {1, 1, 1, 1}
 
 local function GetCached(value)
     if not Cache[value] then
@@ -27,21 +27,20 @@ local function GetFormFromHunger(hunger, lastform)
     end
 end
 
-local function OnHungerDelta(inst, data)
-    local hunger = Player.replica.hunger:GetCurrent()
+local function OnHungerDelta(inst)
+    local hunger = inst.replica.hunger:GetCurrent()
     CurrentForm = GetFormFromHunger(hunger, CurrentForm)
     if CurrentForm ~= 1 and (hunger - WARNING) <= Deform[CurrentForm] then
     	local hungerRemaining = hunger - Deform[CurrentForm]
         Color = COLORED and {1, GetCached(hungerRemaining), 0, 1} or Color
-        Player.components.talker:Say(string.format("Wolfgang becomes %s in %d hunger.", Talker[CurrentForm], hungerRemaining), 0, 0, false, false, Color)
+        inst.components.talker:Say(string.format("Wolfgang becomes %s in %d hunger.", Talker[CurrentForm], hungerRemaining), 0, 0, false, false, Color)
     end
 end
 
 local function ModInit(inst)
     inst:DoTaskInTime(0, function()
     	if inst == GLOBAL.ThePlayer and inst.prefab == "wolfgang" then
-            Player = inst
-            Player:ListenForEvent("hungerdelta", OnHungerDelta)
+            inst:ListenForEvent("hungerdelta", OnHungerDelta)
         end
     end)
 end
