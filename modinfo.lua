@@ -26,7 +26,7 @@ local bool = {
 }
 
 for i = 0, 11 do
-	local hunger = (3 + i * 2)
+	local hunger = 3 + i * 2
 	hunger = (hunger + 1) % 10 == 0 and hunger + 1 or hunger 
 	if (hunger - 1) % 10 ~= 0 then 
 		warning[#warning + 1] = {
