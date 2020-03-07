@@ -1,6 +1,6 @@
 name = "Wolfgang Main"
 author = "Boas"
-version = "1.1"
+version = "1.2"
 
 forumthread = ""
 description = "Wolfgang warns you when you are about to change form"
