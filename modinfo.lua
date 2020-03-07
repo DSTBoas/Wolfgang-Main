@@ -19,28 +19,30 @@ all_clients_require_mod = false
 client_only_mod = true
 server_filter_tags = {}
 
-local warning = {
-	{description = "3", data = 3},
-    {description = "5", data = 5},
-    {description = "7", data = 7},
-    {description = "10", data = 10},
-    {description = "12", data = 12},
-    {description = "15", data = 15},
-    {description = "20", data = 20},
-    {description = "25", data = 25},
-}
-
+local warning = {}
 local bool = {
 	{description = "Enabled", data = true},
 	{description = "Disabled", data = false},
 }
 
+for i = 0, 11 do
+	local hunger = (3 + i * 2)
+	hunger = (hunger + 1) % 10 == 0 and hunger + 1 or hunger 
+    if (hunger - 1) % 10 ~= 0 then 
+    	warning[#warning + 1] = {
+    		description = hunger.."", 
+    		data = hunger,
+    		hover = "Warning starts at "..(100 + hunger).." and "..(220 + hunger).." hunger"
+    	}
+    end
+end
+
 local function AddConfig(label, name, options, default, hover)
-    return {label = label, name = name, options = options, default = default, hover = hover or ""}
+	return {label = label, name = name, options = options, default = default, hover = hover or ""}
 end
 
 configuration_options = 
 {
-	AddConfig("Amount of Hunger", "WARNING", warning, 5, "The amount of Hunger before the warning starts"),
+	AddConfig("Amount of hunger", "WARNING", warning, 5, "Amount of hunger"),
 	AddConfig("Color", "COLORED", bool, true, "Adds color to the warning messages"),
 }
