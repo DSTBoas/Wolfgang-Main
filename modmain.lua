@@ -6,7 +6,7 @@ local WolfgangStartWimpy = TUNING.WOLFGANG_START_WIMPY_THRESH
 local WolfgangEndWimpy = TUNING.WOLFGANG_END_WIMPY_THRESH
 local Deform = {[2] = WolfgangStartWimpy, [3] = WolfgangEndMighty}
 local Talker = {[2] = "WIMPY", [3] = "NORMAL"}
-local GLOBAL, Cache, Color, Colorstep, CurrentForm = GLOBAL, {}, {1, 1, 1, 1}, 1 / WARNING
+local GLOBAL, Color, Colorstep, CurrentForm = GLOBAL, {1, 1, 1, 1}, 1 / WARNING
 
 local function GetFormFromHunger(hunger, lastform)
     local mighty = lastform == 3 and WolfgangEndMighty or WolfgangStartMighty
