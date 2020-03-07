@@ -22,19 +22,19 @@ server_filter_tags = {}
 local warning = {}
 local bool = {
 	{description = "Enabled", data = true},
-	{description = "Disabled", data = false},
+	{description = "Disabled", data = false}
 }
 
 for i = 0, 11 do
 	local hunger = (3 + i * 2)
 	hunger = (hunger + 1) % 10 == 0 and hunger + 1 or hunger 
-    if (hunger - 1) % 10 ~= 0 then 
-    	warning[#warning + 1] = {
-    		description = hunger.."", 
-    		data = hunger,
-    		hover = "Warning starts at "..(100 + hunger).." and "..(220 + hunger).." hunger"
-    	}
-    end
+	if (hunger - 1) % 10 ~= 0 then 
+		warning[#warning + 1] = {
+			description = hunger.."", 
+			data = hunger,
+			hover = "Warning starts at "..(100 + hunger).." and "..(220 + hunger).." hunger"
+		}
+	end
 end
 
 local function AddConfig(label, name, options, default, hover)
