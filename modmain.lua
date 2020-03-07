@@ -1,9 +1,9 @@
 local WARNING = GetModConfigData("WARNING")
 local COLORED = GetModConfigData("COLORED")
-local WolfgangStartMighty = TUNING.WOLFGANG_START_MIGHTY_THRESH
-local WolfgangEndMighty = TUNING.WOLFGANG_END_MIGHTY_THRESH
-local WolfgangStartWimpy = TUNING.WOLFGANG_START_WIMPY_THRESH
-local WolfgangEndWimpy = TUNING.WOLFGANG_END_WIMPY_THRESH
+local WolfgangStartMighty   = TUNING.WOLFGANG_START_MIGHTY_THRESH
+local WolfgangEndMighty     = TUNING.WOLFGANG_END_MIGHTY_THRESH
+local WolfgangStartWimpy    = TUNING.WOLFGANG_START_WIMPY_THRESH
+local WolfgangEndWimpy      = TUNING.WOLFGANG_END_WIMPY_THRESH
 local Deform = {[2] = WolfgangStartWimpy, [3] = WolfgangEndMighty}
 local Talker = {[2] = "WIMPY", [3] = "NORMAL"}
 local GLOBAL, Color, Colorstep, CurrentForm = GLOBAL, {1, 1, 1, 1}, 1 / WARNING
