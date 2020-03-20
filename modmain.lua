@@ -2,7 +2,9 @@ local GLOBAL = GLOBAL
 
 local function Init(inst)
 	inst:DoTaskInTime(0, function()
-		if inst ~= GLOBAL.ThePlayer then return end
+		if inst ~= GLOBAL.ThePlayer then 
+			return 
+		end
 
 		local WARNING = GetModConfigData("WARNING")
 		local COLORED = GetModConfigData("COLORED")
