@@ -1,7 +1,7 @@
 local GLOBAL = GLOBAL
 
-local function Init(inst)
-	inst:DoTaskInTime(0, function()
+local function Init(inst, recur)
+	if recur then
 		if inst == GLOBAL.ThePlayer then  
 			local WARNING = GetModConfigData("WARNING")
 			local COLORED = GetModConfigData("COLORED")
@@ -37,7 +37,9 @@ local function Init(inst)
 
 			inst:ListenForEvent("hungerdelta", OnHungerDelta)
 		end
-	end)
+	else
+		inst:DoTaskInTime(0, Init, true)
+	end
 end
 
 AddPrefabPostInit("wolfgang", Init)
