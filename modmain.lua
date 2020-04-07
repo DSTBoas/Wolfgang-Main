@@ -21,16 +21,12 @@ local function Init(inst)
             }
             local Color, Colorstep, CurrentForm = {1, 1, 1, 1}, 1 / WARNING
 
-            local function GetFormFromHunger(currenthunger, lastform)
-                local mighty = lastform == 3 and WolfgangEndMighty or WolfgangStartMighty
-                local wimpy = lastform == 1 and WolfgangEndWimpy or WolfgangStartWimpy
-                if currenthunger > mighty then
-                    return 3
-                elseif currenthunger <= wimpy then
-                    return 1
-                else
-                    return 2
-                end
+            local function GetFormFromHunger(currenthunger, lastForm)
+                local mighty = lastForm == 3 and WolfgangEndMighty or WolfgangStartMighty
+                local wimpy = lastForm == 1 and WolfgangEndWimpy or WolfgangStartWimpy
+                return currenthunger > mighty and 3
+                       or currenthunger > wimpy and 2
+                       or 1
             end
 
             local function OnHungerDelta(inst)
