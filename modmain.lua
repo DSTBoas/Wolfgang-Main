@@ -2,15 +2,23 @@ local GLOBAL = GLOBAL
 
 local function Init(inst)
     inst:DoTaskInTime(0,function()
-        if inst == GLOBAL.ThePlayer then  
+        if inst == GLOBAL.ThePlayer then
             local WARNING = GetModConfigData("WARNING")
             local COLORED = GetModConfigData("COLORED")
             local WolfgangStartMighty = TUNING.WOLFGANG_START_MIGHTY_THRESH
             local WolfgangEndMighty   = TUNING.WOLFGANG_END_MIGHTY_THRESH
             local WolfgangStartWimpy  = TUNING.WOLFGANG_START_WIMPY_THRESH
             local WolfgangEndWimpy    = TUNING.WOLFGANG_END_WIMPY_THRESH
-            local Deform = {[2] = WolfgangStartWimpy, [3] = WolfgangEndMighty}
-            local Talker = {[2] = "WIMPY", [3] = "NORMAL"}
+            local Deform =
+            {
+                [2] = WolfgangStartWimpy,
+                [3] = WolfgangEndMighty,
+            }
+            local Talker =
+            {
+                [2] = "WIMPY", 
+                [3] = "NORMAL",
+            }
             local Color, Colorstep, CurrentForm = {1, 1, 1, 1}, 1 / WARNING
 
             local function GetFormFromHunger(hunger, lastform)
