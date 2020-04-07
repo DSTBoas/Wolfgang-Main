@@ -39,7 +39,13 @@ local function Init(inst)
                 if CurrentForm ~= 1 and (hunger - WARNING) <= Deform[CurrentForm] then
                     local hungerRemaining = hunger - Deform[CurrentForm]
                     Color = COLORED and {1, Colorstep * (hungerRemaining - 1), 0, 1} or Color
-                    inst.components.talker:Say(string.format("Wolfgang becomes %s in %d hunger.", Talker[CurrentForm], hungerRemaining), 0, 0, false, false, Color)
+                    inst.components.talker:Say(
+                        string.format(
+                            "Wolfgang becomes %s in %d hunger.",
+                            Talker[CurrentForm], hungerRemaining
+                        ),
+                        0, 0, false, false, Color
+                    )
                 end
             end
 
