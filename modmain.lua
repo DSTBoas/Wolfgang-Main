@@ -21,12 +21,12 @@ local function Init(inst)
             }
             local Color, Colorstep, CurrentForm = {1, 1, 1, 1}, 1 / WARNING
 
-            local function GetFormFromHunger(hunger, lastform)
+            local function GetFormFromHunger(currenthunger, lastform)
                 local mighty = lastform == 3 and WolfgangEndMighty or WolfgangStartMighty
                 local wimpy = lastform == 1 and WolfgangEndWimpy or WolfgangStartWimpy
-                if hunger > mighty then
+                if currenthunger > mighty then
                     return 3
-                elseif hunger <= wimpy then
+                elseif currenthunger <= wimpy then
                     return 1
                 else
                     return 2
@@ -34,10 +34,10 @@ local function Init(inst)
             end
 
             local function OnHungerDelta(inst)
-                local hunger = inst.player_classified.currenthunger:value()
-                CurrentForm = GetFormFromHunger(hunger, CurrentForm)
-                if CurrentForm ~= 1 and (hunger - WARNING) <= Deform[CurrentForm] then
-                    local hungerRemaining = hunger - Deform[CurrentForm]
+                local currenthunger = inst.player_classified.currenthunger:value()
+                CurrentForm = GetFormFromHunger(currenthunger, CurrentForm)
+                if CurrentForm ~= 1 and (currenthunger - WARNING) <= Deform[CurrentForm] then
+                    local hungerRemaining = currenthunger - Deform[CurrentForm]
                     Color = COLORED and {1, Colorstep * (hungerRemaining - 1), 0, 1} or Color
                     inst.components.talker:Say(
                         string.format(
