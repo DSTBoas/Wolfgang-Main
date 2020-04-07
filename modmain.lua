@@ -19,7 +19,7 @@ local function Init(inst)
                 [2] = "WIMPY", 
                 [3] = "NORMAL",
             }
-            local Color, Colorstep, CurrentForm = {1, 1, 1, 1}, 1 / WARNING
+            local Color, ColorStep, CurrentForm = {1, 1, 1, 1}, 1 / WARNING
 
             local function GetForm(currenthunger, lastForm)
                 local mighty = lastForm == 3 and WolfgangEndMighty or WolfgangStartMighty
@@ -34,7 +34,7 @@ local function Init(inst)
                 CurrentForm = GetForm(currenthunger, CurrentForm)
                 if CurrentForm ~= 1 and (currenthunger - WARNING) <= Deform[CurrentForm] then
                     local hungerRemaining = currenthunger - Deform[CurrentForm]
-                    Color = COLORED and {1, Colorstep * (hungerRemaining - 1), 0, 1} or Color
+                    Color = COLORED and {1, ColorStep * (hungerRemaining - 1), 0, 1} or Color
                     inst.components.talker:Say(
                         string.format(
                             "Wolfgang becomes %s in %d hunger.",
