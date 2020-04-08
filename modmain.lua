@@ -37,7 +37,7 @@ local function Init(inst)
                     Color = COLORED and {1, ColorStep * (hungerRemaining - 1), 0, 1} or Color
                     inst.components.talker:Say(
                         string.format(
-                            "Wolfgang becomes %s in %d hunger.",
+                            "Wolfgang becomes %s in %s hunger.",
                             Talker[CurrentForm], hungerRemaining
                         ),
                         0, 0, false, false, Color
