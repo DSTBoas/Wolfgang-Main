@@ -20,29 +20,31 @@ client_only_mod = true
 server_filter_tags = {}
 
 local warning = {}
-local bool = {
-	{description = "Enabled", data = true},
-	{description = "Disabled", data = false}
+local bool =
+{
+    {description = "Enabled", data = true},
+    {description = "Disabled", data = false},
 }
 
 for i = 0, 11 do
-	local hunger = 3 + i * 2
-	hunger = (hunger + 1) % 10 == 0 and hunger + 1 or hunger 
-	if (hunger - 1) % 10 ~= 0 then 
-		warning[#warning + 1] = {
-			description = hunger.."", 
-			data = hunger,
-			hover = "Warning starts at "..(100 + hunger).." and "..(220 + hunger).." hunger"
-		}
-	end
+    local hunger = 3 + i * 2
+    hunger = (hunger + 1) % 10 == 0 and hunger + 1 or hunger
+    if (hunger - 1) % 10 ~= 0 then
+        warning[#warning + 1] =
+        {
+            description = hunger.."",
+            data = hunger,
+            hover = "Warning starts at " .. (100 + hunger) .. " and " .. (220 + hunger) .. " hunger"
+        }
+    end
 end
 
 local function AddConfig(label, name, options, default, hover)
-	return {label = label, name = name, options = options, default = default, hover = hover or ""}
+    return {label = label, name = name, options = options, default = default, hover = hover or ""}
 end
 
-configuration_options = 
+configuration_options =
 {
-	AddConfig("Amount of hunger", "WARNING", warning, 5, "Amount of hunger"),
-	AddConfig("Color", "COLORED", bool, false, "Adds a color gradient to the warning messages"),
+    AddConfig("Amount of hunger", "WARNING", warning, 5, "Amount of hunger"),
+    AddConfig("Color", "COLORED", bool, false, "Warning messages have a color gradient"),
 }
