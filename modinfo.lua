@@ -1,6 +1,6 @@
 name = "Wolfgang Main"
 author = "Boas"
-version = "1.5"
+version = "2.0"
 
 forumthread = ""
 description = "Wolfgang warns you when you are about to change form"
@@ -44,5 +44,5 @@ end
 configuration_options = 
 {
 	AddConfig("Amount of hunger", "WARNING", warning, 5, "Amount of hunger"),
-	AddConfig("Color", "COLORED", bool, true, "Adds color to the warning messages"),
+	AddConfig("Color", "COLORED", bool, false, "Adds a color gradient to the warning messages"),
 }
