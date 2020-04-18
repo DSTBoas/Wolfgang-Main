@@ -25,8 +25,8 @@ local function Init(inst)
                 local mighty = lastForm == 3 and WolfgangEndMighty or WolfgangStartMighty
                 local wimpy = lastForm == 1 and WolfgangEndWimpy or WolfgangStartWimpy
                 return currenthunger > mighty and 3
-                       or currenthunger > wimpy and 2
-                       or 1
+                    or currenthunger > wimpy and 2
+                    or 1
             end
 
             local function OnHungerDelta(inst)
