@@ -38,9 +38,14 @@ local function Init(inst)
                     inst.components.talker:Say(
                         string.format(
                             "Wolfgang becomes %s in %s hunger.",
-                            Talker[CurrentForm], hungerRemaining
+                            Talker[CurrentForm], 
+                            hungerRemaining
                         ),
-                        0, 0, false, false, Color
+                        0,
+                        0,
+                        false,
+                        false,
+                        Color
                     )
                 end
             end
