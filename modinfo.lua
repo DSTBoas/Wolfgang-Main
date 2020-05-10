@@ -22,13 +22,17 @@ if not folder_name:find("workshop-") then
     name = name .. " (dev)"
 end
 
+local function AddConfigOption(desc, data, hover)
+    return {description = desc, data = data, hover = hover}
+end
+
 local function AddConfig(label, name, options, default, hover)
     return {
                 label = label,
                 name = name,
                 options = options,
                 default = default,
-                hover = hover or ""
+                hover = hover
            }
 end
 
@@ -36,14 +40,10 @@ local function AddSectionTitle(title)
     return AddConfig(title, "", {{description = "", data = 0}}, 0)
 end
 
-local function CreateOption(desc, data, hover)
-    return {description = desc, data = data, hover = hover}
-end
-
 local SettingOptions =
 {
-    CreateOption("Enabled", true, "Warning messages have a color gradient"),
-    CreateOption("Disabled", false),
+    AddConfigOption("Enabled", true, "Warning messages have a color gradient"),
+    AddConfigOption("Disabled", false),
 }
 
 local HungerOptions = {}
@@ -53,7 +53,7 @@ for i = 0, 11 do
     hunger = (hunger + 1) % 10 == 0 and hunger + 1 or hunger
     if (hunger - 1) % 10 ~= 0 then
         local hover = "Warning starts at " .. (100 + hunger) .. " and " .. (220 + hunger) .. " hunger"
-        HungerOptions[#HungerOptions + 1] = CreateOption(
+        HungerOptions[#HungerOptions + 1] = AddConfigOption(
                                                 hunger.."", 
                                                 hunger,
                                                 hover
