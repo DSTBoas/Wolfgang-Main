@@ -1,11 +1,11 @@
 name = "Wolfgang Main"
-description = "Wolfgang warns you when you are about to change form"
+description = "Wolfgang warns you when you are about to change form\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tMade with 󰀍"
 
 icon_atlas = "modicon.xml"
 icon = "modicon.tex"
 
 author = "Boas"
-version = "2.1"
+version = "2.2"
 forumthread = ""
 
 dont_starve_compatible = false
@@ -42,8 +42,8 @@ end
 
 local SettingOptions =
 {
-    AddConfigOption("Enabled", true, "Warning messages have a color gradient"),
     AddConfigOption("Disabled", false),
+    AddConfigOption("Enabled", true, "Warning messages have a color gradient"),
 }
 
 local HungerOptions = {}
