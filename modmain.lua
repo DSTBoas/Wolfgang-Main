@@ -18,7 +18,7 @@ local function Init(inst)
             }
             local Talker =
             {
-                [2] = "WIMPY", 
+                [2] = "WIMPY",
                 [3] = "NORMAL",
             }
             local Color, ColorStep, CurrentForm = {1, 1, 1, 1}, 1 / WARNING
